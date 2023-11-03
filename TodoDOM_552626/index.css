@@ -10,7 +10,15 @@ form {
   padding: 30px;
 }
 
-
+.button {
+  background-color:#190482;
+  border: 0;
+  padding: 10px;
+  color:#F3F0CA;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 label {
   font-size: 20px;

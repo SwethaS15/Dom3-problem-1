@@ -1,7 +1,6 @@
 let myForm = document.querySelector("form");
 let inputTask = document.getElementById("task");
 let priority = document.getElementById("priority");
-let Favourite = document.getElementById("favourite");
 let tbody = document.querySelector("tbody");
 let AllData = [];
 
@@ -21,7 +20,6 @@ myForm.addEventListener("submit",function(e)
     let Data = {};
     Data.input1 = inputTask.value;
     Data.input2 = priority.value;
-    Data.input3 = Favourite.value;
     AllData.push(Data);
 
     tbody.innerHTML = null;
@@ -32,12 +30,25 @@ myForm.addEventListener("submit",function(e)
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
         let td3 = document.createElement("td");
+        let button = document.createElement("button");
+        button.innerText ="Favourite";
+        button.setAttribute("class","button")
         
         td1.innerText = element.input1;
         td2.innerText = element.input2;
-        td3.innerText = element.input3;
+        td3.append(button);
         row.append(td1,td2,td3);
         row.style.backgroundColor = changeBackgroundColor(element.input2);
         tbody.append(row);
+
+        button.addEventListener("click",function() {
+            td3.innerText="favourite";
+            td3.style.color="#FFFFFF";
+            td3.style.textTransform="uppercase";
+            td3.style.fontWeight="bold";
+            row.append(td3);
+            tbody.append(row);
+            button.style.display="none";
+        });
     })
 })
